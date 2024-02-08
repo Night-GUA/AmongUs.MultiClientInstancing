@@ -10,7 +10,9 @@ namespace MCI.Patches
 
         public static void Postfix()
         {
+#if RELEASE
             if (!MCIPlugin.Enabled) return;
+#endif
             if (Input.GetKeyDown(KeyCode.F5))
             {
                 controllingFigure = PlayerControl.LocalPlayer.PlayerId;

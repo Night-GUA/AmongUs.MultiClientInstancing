@@ -3,6 +3,13 @@ using BepInEx.Unity.IL2CPP;
 using HarmonyLib;
 using System;
 using UnityEngine.SceneManagement;
+using Il2CppInterop.Runtime.InteropTypes.Arrays;
+using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
 
 namespace MCI
 {
@@ -11,16 +18,24 @@ namespace MCI
     [BepInDependency(SubmergedCompatibility.SUBMERGED_GUID, BepInDependency.DependencyFlags.SoftDependency)]
     public partial class MCIPlugin : BasePlugin
     {
-        public const string VersionString = "0.0.6";
+        public const string VersionString = "0.0.7";
         internal static Version vVersion = new(VersionString);
         public Harmony Harmony { get; } = new(Id);
 
-        public static MCIPlugin Singleton { get; private set; } = null;
+        public static string[] language = CultureInfo.CurrentCulture.Name.Split("-");
 
-        public static string RobotName { get; set; } = "Bot";
+        public static MCIPlugin Singleton { get; private set; } = null;
 
         public static bool Enabled { get; set; } = true;
         public static bool IKnowWhatImDoing { get; set; } = false;
+        public static bool IfChinese = language[0] == "zh" ? true : false;
+        public static bool IfDebug = false;
+#if Debug
+IfDebug = true();
+#endif
+
+        public static string RobotName { get; set; } = IfChinese ? "Yu宝机器人" : "Yu Bot";
+
         public override void Load()
         {
             if (Singleton != null) return;
