@@ -34,18 +34,11 @@ namespace MCI.Patches
 
                 __instance.text.text += (SubmergedCompatibility.Loaded && GameOptionsManager.Instance.currentNormalGameOptions.MapId == 5) ? " <color=#00ccccFF>[Submerged]</color>" : " ";
             }
-            if (UpdateChecker.needsUpdate) __instance.text.text += "\n- <color=#ff0000FF>UPDATE AVAILABLE</color>";
+            if (UpdateChecker.needsUpdate) __instance.text.text += MCIPlugin.IfChinese ? "\n- <color=#ff0000FF>有更新</color>":"\n- <color=#ff0000FF>UPDATE AVAILABLE</color>";
+            __instance.text.text += "\nThis Ver By Yu";
 #if Debug
 __instance.text.text += "<color=#FFC0CB>Debug</color>";
 #endif
-            /* __instance.text.text +=
-                 "\n    Versions prior to 0.0.7 were produced by MyDragonBreath, whichTwix";
-             __instance.text.text +=
-                 "\n    Yu is a new version (0.0.7 onwards) of the developer" +
-                 "\n    Old Ver See Here(From 0.0.1 To 0.0.6):" +
-                 "\nhttps://github.com/MyDragonBreath/AmongUs.MultiClientInstancing" +
-                 "\n    New Ver See Here(From 0.0.7 To ...)" +
-                 "\nhttps://github.com/Night-GUA/AmongUs.MultiClientInstancing";*/
 
         }
     }

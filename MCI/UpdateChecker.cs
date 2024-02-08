@@ -21,8 +21,8 @@ namespace MCI
         {
             HttpClient http = new();
             http.DefaultRequestHeaders.Add("User-Agent", "MCI-Agent");
-            var response = await http.GetAsync(new Uri("https://api.github.com/repos/MyDragonBreath/AmongUs.MultiClientInstancing/releases/latest"), HttpCompletionOption.ResponseContentRead);
-
+            var response = await http.GetAsync(new Uri(MCIPlugin.IfChinese ? "https://gitee.com/api/v5/repos/xigua_ya/AmongUs.MultiClientInstancing/releases" : "https://api.github.com/repos/Night-GUA/AmongUs.MultiClientInstancing/releases/latest"), HttpCompletionOption.ResponseContentRead);
+            
             if (response.StatusCode != HttpStatusCode.OK || response.Content == null) return false;
 
             string json = await response.Content.ReadAsStringAsync();

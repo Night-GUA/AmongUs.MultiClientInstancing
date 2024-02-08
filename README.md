@@ -47,6 +47,9 @@ Original Developer(0.0.1~0.0.6): MyDragonBreath, whichTwix
 <li>And...Maybe your name can in this list</li>
 </lu>
 
+## And...
+No support for THE FUNGLE Map at this time (learning and making them)
+
 #
 <p align="center">This mod is not affiliated with Among Us or Innersloth LLC, and the content contained therein is not endorsed or otherwise sponsored by Innersloth LLC. Portions of the materials contained herein are property of Innersloth LLC.</p>
 <p align="center">© Innersloth LLC.</p>
@@ -98,6 +101,9 @@ Original Developer(0.0.1~0.0.6): MyDragonBreath, whichTwix
 </li>
 <li>暂无更多......</li>
 </lu>
+
+## 还有
+暂不支持地图THE FUNGLE（蘑菇地图）（正在学习并制作）
 
 #
 <p align="center">本模组与 Among Us 或 Innersloth LLC 无关，其中包含的内容未经 Innersloth LLC 认可或赞助。此处包含的部分材料是 Innersloth LLC 的财产。</p>
