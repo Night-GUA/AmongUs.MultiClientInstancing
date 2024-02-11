@@ -9,7 +9,7 @@ using Il2CppInterop.Runtime;
 
 namespace MCI.Button;
 [HarmonyPatch(typeof(MainMenuManager))]
-//参考COG
+//From COG and ToHope
 
 public class MainButton
 {
