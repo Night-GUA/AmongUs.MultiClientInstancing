@@ -7,11 +7,11 @@ using System.Linq;
 using Mono.CompilerServices.SymbolWriter;
 using Il2CppInterop.Runtime;
 
-namespace MCI.Button;
+namespace MCI.UI;
 [HarmonyPatch(typeof(MainMenuManager))]
 //From COG and ToHope
 
-public class MainButton
+public class ButtonMain
 {
     [HarmonyPatch(nameof(MainMenuManager.Start))]
     [HarmonyPrefix]
