@@ -19,7 +19,7 @@ namespace MCI.Patches
                 InstanceControl.PlayerIdClientId.Clear();
                 for (int i = 0; i < count; i++)
                 {
-                    Utils.CreatePlayerInstance("Bot");
+                    Utils.CreatePlayerInstance(MCIPlugin.IfChinese?"Yu宝机器人" : "Yu Bot");
                 }
             }
         }

@@ -18,7 +18,7 @@ namespace MCI
     [BepInDependency(SubmergedCompatibility.SUBMERGED_GUID, BepInDependency.DependencyFlags.SoftDependency)]
     public partial class MCIPlugin : BasePlugin
     {
-        public const string VersionString = "0.0.7";
+        public const string VersionString = "0.0.8";
         internal static Version vVersion = new(VersionString);
         public Harmony Harmony { get; } = new(Id);
 

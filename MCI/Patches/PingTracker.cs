@@ -32,7 +32,7 @@ namespace MCI.Patches
                                     " <color=#00ff00FF>[<color=#ccaa00FF>✓</color>]</color>" : " <color=#ff0000FF>[<color=#ccaa00FF>X</color>]</color>";
                 }
 
-                __instance.text.text += (SubmergedCompatibility.Loaded && GameOptionsManager.Instance.currentNormalGameOptions.MapId == 5) ? " <color=#00ccccFF>[Submerged]</color>" : " ";
+                __instance.text.text += (SubmergedCompatibility.Loaded && GameOptionsManager.Instance.currentNormalGameOptions.MapId == 6) ? " <color=#00ccccFF>[Submerged]</color>" : " ";
             }
             if (UpdateChecker.needsUpdate) __instance.text.text += MCIPlugin.IfChinese ? "\n- <color=#ff0000FF>有更新</color>":"\n- <color=#ff0000FF>UPDATE AVAILABLE</color>";
             __instance.text.text += "\nThis Ver By Yu";

@@ -21,7 +21,7 @@ namespace MCI
             PlatformSpecificData samplePSD = new()
             {
                 Platform = Platforms.StandaloneWin10,
-                PlatformName = "Bot"
+                PlatformName = MCIPlugin.IfChinese?"Yu宝机器人" : "Yu Bot"
             };
 
             int sampleId = id;
