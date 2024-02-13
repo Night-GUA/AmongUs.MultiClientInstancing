@@ -55,7 +55,7 @@ public class MainButton
     /// <param name="text">按钮文本</param>
     /// <param name="url">点击按钮打开链接</param>
     /// <returns>返回这个按钮</returns>
-    static void UrlButton(MainMenuManager __instance, string parent, Vector2 anchorPoint,Vector2 fatherPoint,Vector3 textPoint,Vector3 resizing,Vector3 fatherresizing,Vector3 textresizing, string text, string url)
+    private static void UrlButton(MainMenuManager __instance, string parent, Vector2 anchorPoint,Vector2 fatherPoint,Vector3 textPoint,Vector3 resizing,Vector3 fatherresizing,Vector3 textresizing, string text, string url)
     {
         var template = GameObject.Find(parent);
         
@@ -92,6 +92,7 @@ public class MainButton
     {
         foreach (var btn in Buttons) btn.gameObject.SetActive(false);
     }
+    
     [HarmonyPatch(nameof(MainMenuManager.ResetScreen))]
     [HarmonyPostfix]
     static void Show()
