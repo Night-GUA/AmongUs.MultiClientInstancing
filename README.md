@@ -41,7 +41,7 @@ You can press `Shift` + `F6` to switch between IKnowWhatI'm Doing Mode.
 | v2023.11.28 |[v0.0.7_20240214](https://github.com/Night-GUA/AmongUs.MultiClientInstancing/releases/tag/v0.0.7)|
 
 ## Updata Log
-[See the Updata Log](https://github.com/Night-GUA/AmongUs.MultiClientInstancing/blob/main/MCI/Resources/EnglishUpdata.md)
+[See the Updata Log](https://github.com/Night-GUA/AmongUs.MultiClientInstancing/blob/main/MCI/Resources/EnglishUpdate.md)
 
 ## Thanks
 <lu>
@@ -100,7 +100,7 @@ No support for THE FUNGLE Map at this time (learning and making them)
 | v2023.11.28 | [v0.0.7_20240214](https://gitee.com/xigua_ya/AmongUs.MultiClientInstancing/releases/tag/v0.0.7)                                                                    |
 
 ## 更新日志
-[查看更新日志请点击我](https://gitee.com/xigua_ya/AmongUs.MultiClientInstancing/blob/main/MCI/Resources/ChineseUpdata.md)
+[查看更新日志请点击我](https://gitee.com/xigua_ya/AmongUs.MultiClientInstancing/blob/main/MCI/Resources/ChineseUpdate.md)
 
 ## 致谢
 <lu>
