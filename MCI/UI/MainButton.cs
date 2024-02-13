@@ -16,21 +16,14 @@ using Object = UnityEngine.Object;
 using UnityEngine.SceneManagement;
 using AmongUs.Data;
 using Assets.InnerNet;
-using System.Linq;
-using System.Reflection;
-using System.Linq;
-using Mono.CompilerServices.SymbolWriter;
-using Il2CppInterop.Runtime;
 using Version = Steamworks.Version;
 
 namespace MCI.UI;
 [HarmonyPatch(typeof(MainMenuManager))]
-//参考COG和TOR
-//Thank COG and TOR
-
+//一天天的净给我惹麻烦QAQ
 public class MainButton
 {
-    [HarmonyPatch(nameof(MainMenuManager.Start))]
+    [HarmonyPatch(typeof(MainMenuManager), nameof(MainMenuManager.Start))]
     [HarmonyPrefix]
     static void LoadButtons(MainMenuManager __instance)
     {
