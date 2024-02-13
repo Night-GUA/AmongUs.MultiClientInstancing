@@ -10,15 +10,17 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using UnityEngine.Scripting;
 
 namespace MCI
 {
-    [BepInAutoPlugin("dragonbreath.au.mci", "MCI", VersionString)]
+    [BepInAutoPlugin("yu.au.mci", "MCI", VersionString)]
     [BepInProcess("Among Us.exe")]
     [BepInDependency(SubmergedCompatibility.SUBMERGED_GUID, BepInDependency.DependencyFlags.SoftDependency)]
     public partial class MCIPlugin : BasePlugin
     {
-        public const string VersionString = "0.0.8";
+        public const string VersionString = "0.0.7";
+        public const string AfterVersionString = "20240214";
         internal static Version vVersion = new(VersionString);
         public Harmony Harmony { get; } = new(Id);
 
@@ -29,10 +31,7 @@ namespace MCI
         public static bool Enabled { get; set; } = true;
         public static bool IKnowWhatImDoing { get; set; } = false;
         public static bool IfChinese = language[0] == "zh" ? true : false;
-        public static bool IfDebug = false;
-#if Debug
-IfDebug = true();
-#endif
+        public static string VersionTextString = IfChinese ? "情人节快乐❤" : "Happy Valentine's Day⭐";
 
         public static string RobotName { get; set; } = IfChinese ? "Yu宝机器人" : "Yu Bot";
 
@@ -66,4 +65,12 @@ IfDebug = true();
             __instance.countDownTimer = 0;
         }
     }
+    /*
+     * Todo:
+     * 重写更新（加入对AVS变量的判断）
+     * 删除背景（如TONX）
+     * 换LOGO（如TONX）
+     * 换首页按钮图标（如TONX）
+     * 添加技能图标（如TOR）
+     */
 }

@@ -13,7 +13,15 @@ namespace MCI.Patches
             var tmp = inf.AddComponent<TMPro.TextMeshPro>();
             tmp.alignment = TMPro.TextAlignmentOptions.Center;
             tmp.horizontalAlignment = TMPro.HorizontalAlignmentOptions.Center;
-            if (MCIPlugin.IfDebug) tmp.text = MCIPlugin.IfChinese ? "<color=#0000FF>你现处于</color><color#FF0000>Debug</color><color=#0000FF>模式</color>" : "<color=#0000FF>You now at</color><color#FF0000>Debug</color><color=#0000FF> Mode</color>";
+#if Debug
+tmp.text = MCIPlugin.IfChinese ? "<color=#0000FF>你现处于</color><color#FF0000>Debug</color><color=#0000FF>模式</color>" : "<color=#0000FF>You now at</color><color#FF0000>Debug</color><color=#0000FF> Mode</color>";
+#endif
+#if CANARYPRI
+            tmp.text = MCIPlugin.IfChinese ? "<color=#0000FF>你现处于</color><color#FF0000>Canary Private</color><color=#0000FF>模式\n仅测试不分享</color>" : "<color=#0000FF>You now at</color><color#FF0000>Canary Private</color><color=#0000FF> Mode\nThis Mode Only Test,Can't Share</color>";
+#endif
+#if canarypub
+tmp.text = MCIPlugin.IfChinese ? "<color=#0000FF>你现处于</color><color#FF0000>Canary Public</color><color=#0000FF>模式\n仅测试</color>" : "<color=#0000FF>You now at</color><color#FF0000>Canary Public</color><color=#0000FF> Mode\nThis Mode Only Test</color>";
+#endif
             //tmp.color = Color.red;
             tmp.fontSize = 2f;
 

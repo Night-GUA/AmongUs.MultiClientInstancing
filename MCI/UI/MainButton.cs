@@ -6,10 +6,6 @@ using System.Reflection;
 using System.Linq;
 using Mono.CompilerServices.SymbolWriter;
 using Il2CppInterop.Runtime;
-using System;
-using System.Collections.Generic;
-using HarmonyLib;
-using UnityEngine;
 using UnityEngine.UI;
 using static UnityEngine.UI.Button;
 using Object = UnityEngine.Object;
@@ -28,9 +24,11 @@ public class MainButton
     static void LoadButtons(MainMenuManager __instance)
     {
         Buttons.Clear();
-        
-        UrlButton(__instance,"SettingsButton",new Vector2(0.542f, 0.5f),new Vector2(0.378f, 0.5f),new Vector3(1.8f, 0.9f, 0.9f),new Vector3(0.42f, 0.84f, 1f),new Vector3(0.42f, 0.84f, 1f),new Vector3(-1.1f, 0f, 0f),"中国大陆玩家点我查看使用说明","https://gitee.com/xigua_ya/AmongUs.MultiClientInstancing/blob/main/MCI/Resources/ChineseHTU.md");
-        UrlButton(__instance,"SettingsButton",new Vector2(0.542f, 0.5f),new Vector2(0.378f, 0.5f),new Vector3(1.8f, 0.9f, 0.9f),new Vector3(0.42f, 0.84f, 1f),new Vector3(0.42f, 0.84f, 1f),new Vector3(-1.1f, 0f, 0f),"Choose Me to see how to use","https://github.com/Night-GUA/AmongUs.MultiClientInstancing/blob/main/MCI/Resources/EnglishHTU.md");
+        //我tm生气了
+        //只能用设置和退出按钮 不能用其他的 md那怎么办啊
+
+        UrlButton(__instance, "CreditsButton", new Vector2(0.542f, 0.5f),new Vector2(0.625f, 0.5f),new Vector3(1.8f, 0.9f, 0.9f),new Vector3(0.42f, 0.84f, 0.84f),new Vector3(0.42f, 0.84f, 0.84f),new Vector3(-1.1f, 0f, 0f),"使用说明","https://gitee.com/xigua_ya/AmongUs.MultiClientInstancing/blob/main/MCI/Resources/ChineseHTU.md");
+        UrlButton(__instance, "ExitGameButton", new Vector2(0.462f, 0.5f),new Vector2(0.378f, 0.5f),new Vector3(1.8f, 0.9f, 0.9f),new Vector3(0.42f, 0.84f, 0.84f),new Vector3(0.42f, 0.84f, 0.84f),new Vector3(-1.1f, 0f, 0f),"how to use","https://github.com/Night-GUA/AmongUs.MultiClientInstancing/blob/main/MCI/Resources/EnglishHTU.md");
     }
 
     private static readonly List<GameObject> Buttons = new();
@@ -59,13 +57,16 @@ public class MainButton
         if (button == null) return;
         
         template.transform.localScale = fatherresizing;
+        //Debug.LogError($"*From Yu*,buttonText is {template.transform.localScale}.");
         template.GetComponent<AspectPosition>().anchorPoint = fatherPoint;
+        //Debug.LogError($"*From Yu*,buttonText is {template.GetComponent<AspectPosition>().anchorPoint}.");
         template.transform.FindChild("FontPlacer").transform.localScale = textresizing;
         template.transform.FindChild("FontPlacer").transform.localPosition = textPoint;
         button.transform.localScale = resizing;
         button.GetComponent<AspectPosition>().anchorPoint = anchorPoint;
 
         var buttonText = button.transform.GetComponentInChildren<TMPro.TMP_Text>();
+        //Debug.LogError($"*From Yu*,buttonText is {buttonText}.");
         __instance.StartCoroutine(Effects.Lerp(0.5f,
             new System.Action<float>((p) => { buttonText.SetText(text); })));
         PassiveButton passiveButton = button.GetComponent<PassiveButton>();

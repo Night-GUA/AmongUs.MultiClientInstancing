@@ -4,10 +4,12 @@
         <LangVersion>latest</LangVersion>
         <DebugType>embedded</DebugType>
 
-        <VersionPrefix>1.0.0</VersionPrefix>
-        <VersionSuffix>dev</VersionSuffix> 
+        <VersionPrefix>0.0.7</VersionPrefix>
+        <VersionSuffix>CP20230214</VersionSuffix> 
         <Description>MultiClientInstancing</Description>
         <Authors>MyDragonBreath, whichtwix, Yu</Authors>
+        <Configurations>Debug;Release;Canarypri;Canarypub</Configurations>
+        <Platforms>AnyCPU</Platforms>
     </PropertyGroup>
 
     <PropertyGroup>

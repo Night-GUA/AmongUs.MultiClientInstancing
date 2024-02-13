@@ -6,11 +6,17 @@ Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
+		Canarypub|Any CPU = Canarypub|Any CPU
+		Canarypri|Any CPU = Canarypri|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{11FBC798-BAF5-4EE5-9511-BE6DB0592F99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{11FBC798-BAF5-4EE5-9511-BE6DB0592F99}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11FBC798-BAF5-4EE5-9511-BE6DB0592F99}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11FBC798-BAF5-4EE5-9511-BE6DB0592F99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11FBC798-BAF5-4EE5-9511-BE6DB0592F99}.Canarypub|Any CPU.ActiveCfg = Canarypub|Any CPU
+		{11FBC798-BAF5-4EE5-9511-BE6DB0592F99}.Canarypub|Any CPU.Build.0 = Canarypub|Any CPU
+		{11FBC798-BAF5-4EE5-9511-BE6DB0592F99}.Canarypri|Any CPU.ActiveCfg = Canarypri|Any CPU
+		{11FBC798-BAF5-4EE5-9511-BE6DB0592F99}.Canarypri|Any CPU.Build.0 = Canarypri|Any CPU
 	EndGlobalSection
 EndGlobal
