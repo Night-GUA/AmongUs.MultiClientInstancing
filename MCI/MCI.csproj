@@ -4,9 +4,9 @@
         <LangVersion>latest</LangVersion>
         <DebugType>embedded</DebugType>
 
-        <VersionPrefix>0.0.7</VersionPrefix>
+        <VersionPrefix>0.0.8</VersionPrefix>
         <VersionSuffix>CP20230214</VersionSuffix> 
-        <Description>MultiClientInstancing</Description>
+        <Description>MultiClientInstancing-Yu</Description>
         <Authors>MyDragonBreath, whichtwix, Yu</Authors>
         <Configurations>Debug;Release;Canarypri;Canarypub</Configurations>
         <Platforms>AnyCPU</Platforms>
@@ -14,12 +14,20 @@
 
     <PropertyGroup>
         <GamePlatform Condition="'$(GamePlatform)' == ''">Steam</GamePlatform>
-        <GameVersion Condition="'$(GamePlatform)' == 'Steam'">2023.6.13</GameVersion>
-        <GameVersion Condition="'$(GamePlatform)' == 'Itch'">2023.6.13</GameVersion>
+        <GameVersion Condition="'$(GamePlatform)' == 'Steam'">2024.3.5</GameVersion>
+        <GameVersion Condition="'$(GamePlatform)' == 'Itch'">2023.7.11</GameVersion>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="BepInEx.Unity.IL2CPP" Version="6.0.0-be.670" />
+      <None Remove="Resources\MCI-BG.png" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Include="Resources\MCI-BG.png" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="BepInEx.Unity.IL2CPP" Version="6.0.0-be.688" />
         <PackageReference Include="AmongUs.GameLibs.$(GamePlatform)" Version="$(GameVersion)" PrivateAssets="all" />
 
         <PackageReference Include="BepInEx.AutoPlugin" Version="1.1.0" PrivateAssets="all" />
@@ -29,7 +37,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Update="AmongUs.GameLibs.Steam" Version="2023.11.28" />
+      <PackageReference Update="AmongUs.GameLibs.Steam" Version="2024.3.5" />
     </ItemGroup>
 
     <Target Name="Copy" AfterTargets="Build" Condition="'$(AmongUs)' != ''">

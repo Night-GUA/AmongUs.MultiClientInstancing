@@ -19,8 +19,8 @@ namespace MCI
     [BepInDependency(SubmergedCompatibility.SUBMERGED_GUID, BepInDependency.DependencyFlags.SoftDependency)]
     public partial class MCIPlugin : BasePlugin
     {
-        public const string VersionString = "0.0.7";
-        public const string AfterVersionString = "20240214";
+        public const string VersionString = "0.0.8";
+        public const string AfterVersionString = "20240320";
         internal static Version vVersion = new(VersionString);
         public Harmony Harmony { get; } = new(Id);
 
@@ -31,9 +31,9 @@ namespace MCI
         public static bool Enabled { get; set; } = true;
         public static bool IKnowWhatImDoing { get; set; } = false;
         public static bool IfChinese = language[0] == "zh" ? true : false;
-        public static string VersionTextString = IfChinese ? "情人节快乐❤" : "Happy Valentine's Day⭐";
+        public static string VersionTextString = IfChinese ? "春分来咯~⭐" : "Spring will come!⭐";
 
-        public static string RobotName { get; set; } = IfChinese ? "Yu宝机器人" : "Yu Bot";
+        public static string RobotName { get; set; } = IfChinese ? "Yu机器人" : "Yu Bot";
 
         public override void Load()
         {
