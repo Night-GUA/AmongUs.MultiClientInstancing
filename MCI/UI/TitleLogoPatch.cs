@@ -33,6 +33,9 @@ internal class TitleLogoPatch
     public static GameObject MCI_Background;
     public static GameObject Ambience;
     public static GameObject Starfield;
+    public static GameObject Sizer;
+    public static GameObject AULogo;
+    public static GameObject BottomButtonBounds;
 
     public static void showPopup(string text){
         var popup = GameObject.Instantiate(DiscordManager.Instance.discordPopup, Camera.main!.transform);
@@ -52,17 +55,29 @@ internal class TitleLogoPatch
         ModStamp.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
         
         MCI_Background = new GameObject("MCI Background");
-        MCI_Background.transform.position = new Vector3(0, 0, 520f);
+        MCI_Background.transform.position = new Vector3(2.1f, 0.2f, 520f);
         var bgRenderer = MCI_Background.AddComponent<SpriteRenderer>();
-        bgRenderer.sprite = LoadSprite("MCI.Resources.MCI-BG.png", 179f);
-        showPopup("背景完成！");
+        bgRenderer.sprite = LoadSprite("MCI.Resources.MCI-Bg.png", 179f);
         
         if (!(Ambience = GameObject.Find("Ambience"))) return;
         if (!(Starfield = Ambience.transform.FindChild("starfield").gameObject)) return;
         StarGen starGen = Starfield.GetComponent<StarGen>();
         starGen.SetDirection(new Vector2(0, -2));
-        //Starfield.transform.SetParent(TONX_Background.transform);
+        Starfield.transform.SetParent(MCI_Background.transform);
         GameObject.Destroy(Ambience);
+        
+        if (!(Sizer = GameObject.Find("Sizer"))) return;
+        if (!(AULogo = GameObject.Find("LOGO-AU"))) return;
+        Sizer.transform.localPosition += new Vector3(0f, 0.12f, 0f);
+        AULogo.transform.localScale = new Vector3(0.66f, 0.67f, 1f);
+        AULogo.transform.position -= new Vector3(0f, 0.1f, 0f);
+        var logoRenderer = AULogo.GetComponent<SpriteRenderer>();
+        logoRenderer.sprite = LoadSprite("MCI.Resources.Yu-Logo.png",120f);
+
+        if (!(BottomButtonBounds = GameObject.Find("BottomButtonBounds"))) return;
+        BottomButtonBounds.transform.localPosition -= new Vector3(0f, 0.1f, 0f);
+        
+        showPopup(MCIPlugin.IfChinese ? $"欢迎使用MCI-Yu {MCIPlugin.VersionString}_{MCIPlugin.AfterVersionString}！" : $"Welcome to use MCI-Yu {MCIPlugin.VersionString}_{MCIPlugin.AfterVersionString}!");
     }
     
     public static Dictionary<string, Sprite> CachedSprites = new();
@@ -98,5 +113,14 @@ internal class TitleLogoPatch
         {
         }
         return null;
+    }
+    
+    [HarmonyPatch(typeof(VersionShower), nameof(VersionShower.Start))]
+    public static class VersionShower_Start
+    {
+        public static void Postfix(VersionShower __instance)
+        {
+            __instance.text.text = $"MCI-Yu v{MCIPlugin.VersionString} (v{Application.version})";
+        }
     }
 }

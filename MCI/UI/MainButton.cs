@@ -4,77 +4,56 @@ using UnityEngine;
 using HarmonyLib;
 using System.Reflection;
 using System.Linq;
-using Mono.CompilerServices.SymbolWriter;
-using Il2CppInterop.Runtime;
-using UnityEngine.UI;
-using static UnityEngine.UI.Button;
-using Object = UnityEngine.Object;
-using UnityEngine.SceneManagement;
-using AmongUs.Data;
-using Assets.InnerNet;
-using Version = Steamworks.Version;
+using MCI;
+using MCI.Patches;
+using MCI.Patches.ClientOptions;
+using MCI.UI;
 
-namespace MCI.UI;
+namespace ToHope.Patch;
 [HarmonyPatch(typeof(MainMenuManager))]
-//一天天的净给我惹麻烦QAQ
-public class MainButton
-{
-    [HarmonyPatch(typeof(MainMenuManager), nameof(MainMenuManager.Start))]
+//参考COG
+
+public class MainAN
+{   
+    [HarmonyPatch(nameof(MainMenuManager.Start))]
     [HarmonyPrefix]
     static void LoadButtons(MainMenuManager __instance)
     {
         Buttons.Clear();
-        //我tm生气了
-        //只能用设置和退出按钮 不能用其他的 md那怎么办啊
+        var template = __instance.creditsButton;
+    
+        if (!template) return;
 
-        UrlButton(__instance, "CreditsButton", new Vector2(0.542f, 0.5f),new Vector2(0.625f, 0.5f),new Vector3(1.8f, 0.9f, 0.9f),new Vector3(0.42f, 0.84f, 0.84f),new Vector3(0.42f, 0.84f, 0.84f),new Vector3(-1.1f, 0f, 0f),"使用说明","https://gitee.com/xigua_ya/AmongUs.MultiClientInstancing/blob/main/MCI/Resources/ChineseHTU.md");
-        UrlButton(__instance, "ExitGameButton", new Vector2(0.462f, 0.5f),new Vector2(0.378f, 0.5f),new Vector3(1.8f, 0.9f, 0.9f),new Vector3(0.42f, 0.84f, 0.84f),new Vector3(0.42f, 0.84f, 0.84f),new Vector3(-1.1f, 0f, 0f),"how to use","https://github.com/Night-GUA/AmongUs.MultiClientInstancing/blob/main/MCI/Resources/EnglishHTU.md");
+        CreateButton(__instance, template, GameObject.Find("RightPanel")?.transform,new(0.2f, 0.38f),"使用说明",() => { Application.OpenURL("https://gitee.com/xigua_ya/AmongUs.MultiClientInstancing/blob/main/MCI/Resources/ChineseHTU.md"); },Color.cyan);
+        CreateButton(__instance, template, GameObject.Find("RightPanel")?.transform,new(0.4f, 0.38f),"how to use",() => { Application.OpenURL("https://github.com/Night-GUA/AmongUs.MultiClientInstancing/blob/main/MCI/Resources/EnglishHTU.md"); },Color.blue);
     }
-
-    private static readonly List<GameObject> Buttons = new();
+    
+    private static readonly List<PassiveButton> Buttons = new();
     /// <summary>
     /// 在主界面创建一个按钮
     /// </summary>
     /// <param name="__instance">MainMenuManager 的实例</param>
+    /// <param name="template">按钮模板</param>
     /// <param name="parent">父游戏物体</param>
     /// <param name="anchorPoint">与父游戏物体的相对位置</param>
-    /// <param name="fatherPoint">父游戏物体的相对位置</param>
-    /// <param name="textPoint">字体相对对象</param>
-    /// <param name="resizing">按钮缩放</param>
-    /// <param name="fatherresizing">父按钮缩放</param>
-    /// <param name="textresizing">文字缩放</param>
     /// <param name="text">按钮文本</param>
-    /// <param name="url">点击按钮打开链接</param>
+    /// <param name="action">点击按钮的动作</param>
     /// <returns>返回这个按钮</returns>
-    private static void UrlButton(MainMenuManager __instance, string parent, Vector2 anchorPoint,Vector2 fatherPoint,Vector3 textPoint,Vector3 resizing,Vector3 fatherresizing,Vector3 textresizing, string text, string url)
+    static void CreateButton(MainMenuManager __instance, PassiveButton template, Transform? parent, Vector2 anchorPoint, string text, Action action,Color color)
     {
-        var template = GameObject.Find(parent);
-        
-        if (template == null) return;
-        
-        var button = Object.Instantiate(template, template.transform.parent);
-        
-        if (button == null) return;
-        
-        template.transform.localScale = fatherresizing;
-        //Debug.LogError($"*From Yu*,buttonText is {template.transform.localScale}.");
-        template.GetComponent<AspectPosition>().anchorPoint = fatherPoint;
-        //Debug.LogError($"*From Yu*,buttonText is {template.GetComponent<AspectPosition>().anchorPoint}.");
-        template.transform.FindChild("FontPlacer").transform.localScale = textresizing;
-        template.transform.FindChild("FontPlacer").transform.localPosition = textPoint;
-        button.transform.localScale = resizing;
+        if (!parent) return;
+
+        var button = UnityEngine.Object.Instantiate(template, parent);
         button.GetComponent<AspectPosition>().anchorPoint = anchorPoint;
-
-        var buttonText = button.transform.GetComponentInChildren<TMPro.TMP_Text>();
-        //Debug.LogError($"*From Yu*,buttonText is {buttonText}.");
-        __instance.StartCoroutine(Effects.Lerp(0.5f,
-            new System.Action<float>((p) => { buttonText.SetText(text); })));
-        PassiveButton passiveButton = button.GetComponent<PassiveButton>();
-
-        passiveButton.OnClick = new Button.ButtonClickedEvent();
-        passiveButton.OnClick.AddListener((System.Action)(() =>
-            Application.OpenURL(url)));
+        SpriteRenderer buttonSprite = button.transform.FindChild("Inactive").GetComponent<SpriteRenderer>();
+        buttonSprite.color = color;
+        __instance.StartCoroutine(Effects.Lerp(0.5f, new Action<float>((p) => {
+            button.GetComponentInChildren<TMPro.TMP_Text>().SetText(text);
+        })));
         
+        button.OnClick = new();
+        button.OnClick.AddListener(action);
+
         Buttons.Add(button);
     }
 
@@ -86,7 +65,6 @@ public class MainButton
     {
         foreach (var btn in Buttons) btn.gameObject.SetActive(false);
     }
-    
     [HarmonyPatch(nameof(MainMenuManager.ResetScreen))]
     [HarmonyPostfix]
     static void Show()

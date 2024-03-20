@@ -14,9 +14,9 @@ namespace MCI.Patches
             tmp.alignment = TMPro.TextAlignmentOptions.Center;
             tmp.horizontalAlignment = TMPro.HorizontalAlignmentOptions.Center;
             if(MCIPlugin.IfChinese)
-                tmp.text = "MCI只能在本地模式运行\n原开发者(0.0.1~0.0.6)：MyDragonBreath, whichTwix\n开发者(0.0.7~...)：Yu";
+                tmp.text = $"MCI-Yu只能在本地模式运行\nMCI开发者(0.0.1~0.0.6)：MyDragonBreath, whichTwix\nMCI-Yu开发者(0.0.7~{MCIPlugin.VersionString}_{MCIPlugin.AfterVersionString})：Yu";
             else
-                tmp.text = "MCI only supports localhosted lobbies.\nOriginal Developer(0.0.1~0.0.6): MyDragonBreath, whichTwix\n Developer(0.0.7~...) : Yu";
+                tmp.text = $"MCI-Yu only supports localhosted lobbies.\nMCI Developer(0.0.1~0.0.6): MyDragonBreath, whichTwix\n MCI-Yu Developer(0.0.7~{MCIPlugin.VersionString}_{MCIPlugin.AfterVersionString}) : Yu";
             tmp.color = Color.red;
             tmp.fontSize = 2f;
 

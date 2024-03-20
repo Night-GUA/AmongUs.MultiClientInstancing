@@ -31,7 +31,7 @@ namespace MCI
         public static bool Enabled { get; set; } = true;
         public static bool IKnowWhatImDoing { get; set; } = false;
         public static bool IfChinese = language[0] == "zh" ? true : false;
-        public static string VersionTextString = IfChinese ? "春分来咯~⭐" : "Spring will come!⭐";
+        public static string VersionTextString = IfChinese ? "春天都过一半了 你的春天呢？~" : "The spring equinox is coming";
 
         public static string RobotName { get; set; } = IfChinese ? "Yu机器人" : "Yu Bot";
 

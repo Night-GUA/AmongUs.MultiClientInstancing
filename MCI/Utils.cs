@@ -81,7 +81,11 @@ namespace MCI
 
         public static void RemoveAllPlayers()
         {
-            foreach (byte playerId in InstanceControl.PlayerIdClientId.Keys) RemovePlayer(playerId);
+            foreach (byte playerId in InstanceControl.PlayerIdClientId.Keys)
+            {
+                if(playerId != 0)
+                    RemovePlayer(playerId);
+            }
             InstanceControl.SwitchTo(AmongUsClient.Instance.allClients[0].Character.PlayerId);
         }
     }

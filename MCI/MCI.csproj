@@ -19,11 +19,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <None Remove="Resources\MCI-BG.png" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <EmbeddedResource Include="Resources\MCI-BG.png" />
+        <EmbeddedResource Include=".\Resources\**" />
     </ItemGroup>
 
     <ItemGroup>

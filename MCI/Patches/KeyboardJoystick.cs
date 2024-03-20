@@ -1,5 +1,9 @@
 ﻿using HarmonyLib;
 using UnityEngine;
+using MCI.UI;
+using Il2CppSystem.Collections.Generic;
+using System;
+using AmongUs.GameOptions;
 
 namespace MCI.Patches
 {
@@ -17,6 +21,8 @@ namespace MCI.Patches
             {
                 controllingFigure = PlayerControl.LocalPlayer.PlayerId;
                 if (PlayerControl.AllPlayerControls.Count == 15 && !Input.GetKeyDown(KeyCode.F6)) return; //press f6 and f5 to bypass limit
+                if(controllingFigure != 0)
+                    controllingFigure = 0;
                 Utils.CleanUpLoad();
                 Utils.CreatePlayerInstance(MCIPlugin.RobotName);
             }
@@ -47,7 +53,8 @@ namespace MCI.Patches
 
             if (Input.GetKeyDown(KeyCode.F11))
             {
-                controllingFigure = 0;
+                if(controllingFigure != 0)
+                    controllingFigure = 0;
                 Utils.RemoveAllPlayers();
             }
         }
