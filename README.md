@@ -39,6 +39,7 @@ You can press `Shift` + `F6` to switch between IKnowWhatI'm Doing Mode.
 |----------|-------------|
 | v2023.11.28 |[v0.0.7](https://github.com/Night-GUA/AmongUs.MultiClientInstancing/releases/tag/v0.0.7)|
 | v2023.11.28 |[v0.0.7_20240214](https://github.com/Night-GUA/AmongUs.MultiClientInstancing/releases/tag/v0.0.7)|
+| v2024.3.5   |[v0.0.8](https://github.com/Night-GUA/AmongUs.MultiClientInstancing/releases/tag/v0.0.8)         |
 
 ## Updata Log
 [See the Updata Log](https://github.com/Night-GUA/AmongUs.MultiClientInstancing/blob/main/MCI/Resources/EnglishUpdate.md)
@@ -94,10 +95,11 @@ No support for THE FUNGLE Map at this time (learning and making them)
 
 ## 新版本(Yu开发)
 
-| Among Us 版本 | 下载                                                                                     |
-|-------------|----------------------------------------------------------------------------------------|
-| v2023.11.28 | [v0.0.7](https://gitee.com/xigua_ya/AmongUs.MultiClientInstancing/releases/tag/v0.0.7) |
-| v2023.11.28 | [v0.0.7_20240214](https://gitee.com/xigua_ya/AmongUs.MultiClientInstancing/releases/tag/v0.0.7)                                                                    |
+| Among Us 版本 | 下载                                                                                              |
+|-------------|-------------------------------------------------------------------------------------------------|
+| v2023.11.28 | [v0.0.7](https://gitee.com/xigua_ya/AmongUs.MultiClientInstancing/releases/tag/v0.0.7)          |
+| v2023.11.28 | [v0.0.7_20240214](https://gitee.com/xigua_ya/AmongUs.MultiClientInstancing/releases/tag/v0.0.7) |
+| v2024.3.5   | [v0.0.8](https://gitee.com/xigua_ya/AmongUs.MultiClientInstancing/releases/tag/v0.0.8)          |
 
 ## 更新日志
 [查看更新日志请点击我](https://gitee.com/xigua_ya/AmongUs.MultiClientInstancing/blob/main/MCI/Resources/ChineseUpdate.md)
