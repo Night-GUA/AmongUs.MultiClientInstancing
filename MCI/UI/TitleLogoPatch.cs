@@ -57,7 +57,7 @@ internal class TitleLogoPatch
         MCI_Background = new GameObject("MCI Background");
         MCI_Background.transform.position = new Vector3(2.1f, 0.2f, 520f);
         var bgRenderer = MCI_Background.AddComponent<SpriteRenderer>();
-        bgRenderer.sprite = LoadSprite("MCI.Resources.MCI-Bg.png", 179f);
+        bgRenderer.sprite = LoadSprite("MCI.Resources.MCI-Bg.png", 179f);//MCI的奇怪体Bg
         
         if (!(Ambience = GameObject.Find("Ambience"))) return;
         if (!(Starfield = Ambience.transform.FindChild("starfield").gameObject)) return;
@@ -72,7 +72,7 @@ internal class TitleLogoPatch
         AULogo.transform.localScale = new Vector3(0.66f, 0.67f, 1f);
         AULogo.transform.position -= new Vector3(0f, 0.1f, 0f);
         var logoRenderer = AULogo.GetComponent<SpriteRenderer>();
-        logoRenderer.sprite = LoadSprite("MCI.Resources.Yu-Logo.png",120f);
+        logoRenderer.sprite = LoadSprite("MCI.Resources.Yu-Logo.png",120f);//Yu的手写体Logo
 
         if (!(BottomButtonBounds = GameObject.Find("BottomButtonBounds"))) return;
         BottomButtonBounds.transform.localPosition -= new Vector3(0f, 0.1f, 0f);
